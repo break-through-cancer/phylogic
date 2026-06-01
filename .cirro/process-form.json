@@ -1,0 +1,31 @@
+{
+  "form": {
+    "type": "object",
+    "properties": {
+      "maf": {
+        "title": "ABSOLUTE-annotated MAF file",
+        "description": "MAF file from ABSOLUTE force calling",
+        "type": "string",
+        "multiple": false,
+        "pathType": "dataset",
+        "file": "**/*"
+      },
+      "seg": {
+        "title": "SEG file",
+        "description": ".seg.txt file",
+        "type": "string",
+        "multiple": false,
+        "pathType": "dataset",
+        "file": "**/*"
+      },
+      "purity": {
+        "title": "Purity",
+        "description": "Tumor purity",
+        "type": "number",
+        "multiple": false
+      }
+    },
+    "required": ["maf", "purity"]
+  },
+  "ui": {}
+}

@@ -1,0 +1,8 @@
+{
+    "read_from_cache": true,
+    "write_to_cache": true,
+    "outdir": "$.params.dataset.s3|/data/",
+    "purity": "$.params.purity",
+    "maf": "$.params.maf",
+    "seg": "$.params.seg"
+ }
