@@ -1,0 +1,6 @@
+work/
+results/
+.nextflow/
+.nextflow*
+test_ABS_MAF.txt
+test.segtab.txt
