@@ -77,7 +77,6 @@ with open(maf_in, "r", newline="") as f:
     # ------------------------------------------------------------
     funcotator_to_phylogic = {
         "Start_Position": "Start_position",
-        "Tumor_Seq_Allele2": "Tumor_Seq_Allele",
         "Protein_Change": "Protein_change",
         "Tumor_Sample_Barcode": "Sample_ID",
     }
