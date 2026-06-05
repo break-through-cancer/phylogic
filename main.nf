@@ -255,6 +255,37 @@ process RUN_BUILDTREE {
         -m "\$MUTATION_CCF" \
         -c "\$CLUSTER_CCF"
 
+    echo "Fixing SVG outputs..."
+
+    python2 <<'PY'
+    import os
+    import re
+    import glob
+
+    for fn in glob.glob("*.svg"):
+        with open(fn, "r") as f:
+            txt = f.read()
+
+        # Backup original broken SVG
+        with open(fn + ".raw.svg", "w") as f:
+            f.write(txt)
+
+        # Force a normal full-canvas viewBox if missing/bad
+        txt = re.sub(r'viewBox="[^"]*"', '', txt)
+
+        txt = re.sub(
+            r'<svg([^>]*)>',
+            r'<svg\1 viewBox="0 0 1200 900" width="1200" height="900" preserveAspectRatio="xMidYMid meet">',
+            txt,
+            count=1
+        )
+
+        fixed = fn.replace(".svg", ".fixed.svg")
+        with open(fixed, "w") as f:
+            f.write(txt)
+
+        print("Wrote fixed SVG:", fixed)
+    PY
     ls -lah
     """
 }
